@@ -1,0 +1,72 @@
+---
+title: "WDI 2022 — Key Findings"
+author: "Mike Wu"
+date: "2025-10-08"
+format:
+  revealjs:
+    theme: [solarized, dark]   
+    transition: concave 
+    slide-number: true
+    toc: false
+bibliography: references.bib   
+
+
+---
+
+# WDI 2022 Analysis
+
+- Three indicators: **GDP per Capita**, **Life Expectancy**, **Inflation Rate**
+- Data source: World Bank WDI [@wdi2022]; macro context: IMF WEO [@imf2022]
+
+---
+
+## Summary
+
+- **GDP per Capita:** very large spread (~250 to ~226,000) → high inequality  
+- **Life Expectancy:** mean ≈ 73, median ≈ 74 → concentrated in 70s  
+- **Inflation:** mean ≈ 12%, std ≈ 19, max 171% → fat right tail / spikes
+
+---
+
+## GDP vs Life Expectancy
+
+
+```{python}
+#| echo: false
+#| label: fig-gdp-life
+#| fig-cap: "GDP per Capita vs Life Expectancy (WDI 2022). Source: World Bank [@wdi2022]."
+#| fig-alt: "Scatter plot of GDP per Capita and Life Expectancy."
+
+import pandas as pd
+df = pd.read_csv("wdi.csv")
+import matplotlib.pyplot as plt
+
+plt.figure()
+plt.scatter(df["gdp_per_capita"], df["life_expectancy"], alpha=0.6)
+plt.title("GDP per Capita vs Life Expectancy")
+plt.xlabel("GDP per Capita")
+plt.ylabel("Life Expectancy (years)")
+plt.grid(True)
+plt.show()
+```
+
+---
+
+## Inflation Quantiles
+
+```{python}
+#| echo: false
+#| label: fig-infl-quant
+#| fig-cap: "Inflation Rate Quantiles (1%, 25%, 50%, 75%, 99%) from WDI 2022. Source: World Bank [@wdi2022]."
+#| fig-alt: "Bar chart of inflation rate quantiles."
+import matplotlib.pyplot as plt
+
+infl_quartiles = df["inflation_rate"].quantile([0.01, 0.25, 0.5, 0.75, 0.99])
+
+plt.figure()
+plt.bar(infl_quartiles.index.astype(str), infl_quartiles.values, edgecolor="black")
+plt.title("Inflation Rate Quantiles")
+plt.xlabel("Quantile")
+plt.ylabel("Inflation Rate (%)")
+plt.show()
+```

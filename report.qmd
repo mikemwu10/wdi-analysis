@@ -1,0 +1,100 @@
+---
+title: "WDI 2022 Analysis"
+author: "Mike Wu"
+date: 10/08/2025
+format:
+  html: default
+  pdf: default
+bibliography: references.bib
+---
+
+# Introduction
+
+This is the beginning of my WDI 2022 analysis report.
+
+## Load the Dataset
+
+```{python}
+import pandas as pd
+
+# Load the dataset (make sure wdi.csv is in the same repo, e.g. data/wdi.csv)
+df = pd.read_csv("wdi.csv")
+
+# Show the shape and first few rows
+print("Shape:", df.shape)
+
+## Exploratory Data Analysis
+
+# 1. GDP per Capita – check min and max
+print("GDP per Capita (min, max):", df["gdp_per_capita"].min(), df["gdp_per_capita"].max())
+
+# 2. Life Expectancy – check mean and median
+print("Life Expectancy (mean, median):", df["life_expectancy"].mean(), df["life_expectancy"].median())
+
+# 3. Inflation Rate – show summary stats
+print("Inflation Rate Summary:")
+print(df["inflation_rate"].describe())
+``` 
+
+## Summary of Findings
+
+* **GDP per Capita**: Countries range from very low income (~250) to very high income (~226,000). This shows large global inequality.
+* **Life Expectancy**: Average life expectancy is about 73 years, median slightly higher at 74. This indicates most countries are clustered in the 70s, with a few low outliers.
+* **Inflation Rate**: Average inflation is about 12%, but with high variation (std ≈ 19). The maximum is extremely high (171%), showing some countries experience hyperinflation. The distribution is right-skewed.
+
+## Visualizations
+
+### HScatter plot of GDP per Capita and Life Expectancy
+
+```{python}
+#| echo: false
+#| fig-cap: "GDP per Capita vs Life Expectancy (WDI 2022). Source: World Bank [@wdi2022]."
+#| fig-alt: "Scatter plot of GDP per Capita and Life Expectancy."
+import matplotlib.pyplot as plt
+
+plt.figure()
+plt.scatter(df["gdp_per_capita"], df["life_expectancy"], alpha=0.6)
+plt.title("GDP per Capita vs Life Expectancy")
+plt.xlabel("GDP per Capita")
+plt.ylabel("Life Expectancy (years)")
+plt.grid(True)
+plt.show()
+``` 
+
+As shown in @tbl-key-stats, GDP per Capita varies widely across countries, 
+while Life Expectancy is much more concentrated.
+
+
+
+### Bar Chart: Inflation Rate Quartiles
+
+```{python}
+#| echo: false
+#| fig-cap: "Inflation Rate Quantiles (1%, 25%, 50%, 75%, 99%) from WDI 2022. Source: World Bank [@wdi2022]."
+#| fig-alt: "Bar chart of inflation rate quantiles."
+import matplotlib.pyplot as plt
+
+infl_quartiles = df["inflation_rate"].quantile([0.01, 0.25, 0.5, 0.75, 0.99])
+
+plt.figure(figsize=(6,4))
+plt.bar(infl_quartiles.index.astype(str), infl_quartiles.values,
+        color="skyblue", edgecolor="black")
+plt.title("Inflation Rate Quantiles")
+plt.xlabel("Quantile")
+plt.ylabel("Inflation Rate (%)")
+plt.show()
+``` 
+
+Global inflation trends have also been highlighted in the IMF’s World Economic Outlook [@imf2022], 
+which emphasizes the risks of high price volatility across emerging markets.
+
+
+## Key Statistics
+
+::: {#tbl-key-stats}
+| Indicator         | Min    | Max     | Mean   | Median |
+|-------------------|--------|---------|--------|--------|
+| GDP per Capita    | 250    | 226,000 |   —    |   —    |
+| Life Expectancy   |   —    |    —    | 73     | 74     |
+| Inflation Rate    |  -6.7  |   171   | 12     |  7.9   |
+:::
