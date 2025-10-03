@@ -165,7 +165,7 @@ Mike Wu
 <h1>WDI 2022 Analysis</h1>
 <ul>
 <li>Three indicators: <strong>GDP per Capita</strong>, <strong>Life Expectancy</strong>, <strong>Inflation Rate</strong></li>
-<li>Data source: World Bank WDI <span class="citation" data-cites="wdi2022">(<a href="#/inflation-quantiles" role="doc-biblioref" onclick="">The World Bank 2022</a>)</span>; macro context: IMF WEO <span class="citation" data-cites="imf2022">(<a href="#/inflation-quantiles" role="doc-biblioref" onclick="">International Monetary Fund 2022</a>)</span></li>
+<li>Data source: World Bank WDI <span class="citation" data-cites="wdi2022">(<a href="#/references" role="doc-biblioref" onclick="">The World Bank 2022</a>)</span>; macro context: IMF WEO <span class="citation" data-cites="imf2022">(<a href="#/references" role="doc-biblioref" onclick="">International Monetary Fund 2022</a>)</span></li>
 </ul>
 </section>
 <section id="summary" class="slide level2">
@@ -188,14 +188,14 @@ Mike Wu
 <img data-src="slides_files/figure-revealjs/fig-gdp-life-output-1.png" alt="Scatter plot of GDP per Capita and Life Expectancy." width="808" height="449">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gdp-life-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: GDP per Capita vs Life Expectancy (WDI 2022). Source: World Bank <span class="citation" data-cites="wdi2022">(<a href="#/inflation-quantiles" role="doc-biblioref" onclick="">The World Bank 2022</a>)</span>.
+Figure&nbsp;1: GDP per Capita vs Life Expectancy (WDI 2022). Source: World Bank <span class="citation" data-cites="wdi2022">(<a href="#/references" role="doc-biblioref" onclick="">The World Bank 2022</a>)</span>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="inflation-quantiles" class="slide level2 smaller scrollable">
+<section id="inflation-quantiles" class="slide level2">
 <h2>Inflation Quantiles</h2>
 <div id="cell-fig-infl-quant" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
@@ -205,13 +205,26 @@ Figure&nbsp;1: GDP per Capita vs Life Expectancy (WDI 2022). Source: World Bank 
 <img data-src="slides_files/figure-revealjs/fig-infl-quant-output-1.png" alt="Bar chart of inflation rate quantiles." width="816" height="449">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-infl-quant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Inflation Rate Quantiles (1%, 25%, 50%, 75%, 99%) from WDI 2022. Source: World Bank <span class="citation" data-cites="wdi2022">(<a href="#/inflation-quantiles" role="doc-biblioref" onclick="">The World Bank 2022</a>)</span>.
+Figure&nbsp;2: Inflation Rate Quantiles (1%, 25%, 50%, 75%, 99%) from WDI 2022. Source: World Bank <span class="citation" data-cites="wdi2022">(<a href="#/references" role="doc-biblioref" onclick="">The World Bank 2022</a>)</span>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li><strong>Income inequality:</strong> GDP per Capita spans ~250 → ~226,000, indicating very large cross-country dispersion.<br>
+</li>
+<li><strong>Health vs.&nbsp;income:</strong> Clear positive association between GDP per Capita and Life Expectancy (see Figure <a href="#/fig-gdp-life" class="quarto-xref">Figure&nbsp;1</a>).<br>
+</li>
+<li><strong>Inflation risk:</strong> Right-skewed with high upper quantiles; outliers align with macro risk discussions <span class="citation" data-cites="imf2022">(<a href="#/references" role="doc-biblioref" onclick="">International Monetary Fund 2022</a>)</span>.</li>
+</ul>
+<p><strong>What to explore next:</strong> regional breakdowns, PPP-adjusted GDP, and robustness to outlier trimming.</p>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-imf2022" class="csl-entry" role="listitem">
 International Monetary Fund. 2022. <span>“World Economic Outlook: War Sets Back the Global Recovery.”</span> <a href="https://www.imf.org/en/Publications/WEO/Issues/2022/04/19/world-economic-outlook-april-2022">https://www.imf.org/en/Publications/WEO/Issues/2022/04/19/world-economic-outlook-april-2022</a>.
@@ -220,6 +233,7 @@ International Monetary Fund. 2022. <span>“World Economic Outlook: War Sets Bac
 The World Bank. 2022. <span>“World Development Indicators.”</span> <a href="https://datacatalog.worldbank.org/dataset/world-development-indicators">https://datacatalog.worldbank.org/dataset/world-development-indicators</a>.
 </div>
 </div>
+
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

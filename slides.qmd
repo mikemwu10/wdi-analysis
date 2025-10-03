@@ -70,3 +70,20 @@ plt.xlabel("Quantile")
 plt.ylabel("Inflation Rate (%)")
 plt.show()
 ```
+
+---
+
+## Conclusion
+
+- **Income inequality:** GDP per Capita spans ~250 → ~226,000, indicating very large cross-country dispersion.  
+- **Health vs. income:** Clear positive association between GDP per Capita and Life Expectancy (see Figure @fig-gdp-life).  
+- **Inflation risk:** Right-skewed with high upper quantiles; outliers align with macro risk discussions [@imf2022].  
+
+**What to explore next:** regional breakdowns, PPP-adjusted GDP, and robustness to outlier trimming.
+
+---
+
+## References
+
+::: {#refs}
+:::
